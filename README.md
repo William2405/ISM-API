@@ -6,5 +6,6 @@ only compatible with Java.The ISM API is a easy to use and understand API, it us
 BufferedImages.
 
 The ISM API is currently very slow at loading ISM files and is a memory hog.
+Also ISM currently does NOT support any kind of audio.
 
 If you would like to help me develop ISM and the ISM API or you have questions please e-mail me at: dev@hachisoftware.com
