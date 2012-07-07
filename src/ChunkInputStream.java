@@ -24,11 +24,7 @@ public class ChunkInputStream extends InputStream {
 	
 	public Chunk readChunk(Chunk type) throws IOException {
 		
-		StringBuilder id = new StringBuilder();
-		id.append(in.readChar());
-		id.append(in.readChar());
-		id.append(in.readChar());
-		id.append(in.readChar());
+		String id = in.readUTF();
 		
 		if(!type.chuckID.equalsIgnoreCase(id.toString()))
 			throw new IOException("Can't cast Chunk '" + type.chuckID + "' to '" + id + "'");

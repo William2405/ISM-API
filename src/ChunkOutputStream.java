@@ -31,12 +31,7 @@ public class ChunkOutputStream extends OutputStream {
 	}
 	
 	public void write(Chunk obj) throws IOException {
-		
-		out.writeChar(obj.chuckID.toCharArray()[0]);
-		out.writeChar(obj.chuckID.toCharArray()[1]);
-		out.writeChar(obj.chuckID.toCharArray()[2]);
-		out.writeChar(obj.chuckID.toCharArray()[3]);
-		
+		out.writeUTF(obj.chuckID);
 		flush();
 		obj.writeChunk(out);
 		flush();
