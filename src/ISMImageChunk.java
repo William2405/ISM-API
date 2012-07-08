@@ -20,12 +20,15 @@ public class ISMImageChunk extends Chunk {
 
 	@Override
 	public void writeChunk(DataOutputStream data) throws IOException {
-		ImageIO.write(image, (writeFormat == 1 ? "PNG" : "JPEG"), data);
+		byte[] imageBytes = ((DataBufferByte) image.getData().getDataBuffer()).getData();
+		data.write(imageBytes, 0, imageBytes.length);
 	}
 
 	@Override
 	public void readChunk(DataInputStream data) throws IOException {
-		image = ImageIO.read(data);
+		byte[] buffer = new byte[8192 * 1024];
+		data.read(buffer);
+		image = ImageIO.read(new ByteArrayInputStream(buffer));
 	}
 
 	public BufferedImage getISMImage() {
